@@ -11,19 +11,19 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="data_ultima_menstruacao">Data da Última Menstruação:</label>
-              <input type="date" id="data_ultima_menstruacao" name="data_ultima_menstruacao" class="form-control" required>
+              <input type="date" id="data_ultima_menstruacao" name="data_ultima_menstruacao" value="{{ hoje }}" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="data_primeiro_ultrassom">Data do Primeiro Ultrassom:</label>
-              <input type="date" id="data_primeiro_ultrassom" name="data_primeiro_ultrassom" class="form-control" required>
+              <input type="date" id="data_primeiro_ultrassom" name="data_primeiro_ultrassom" value="{{ hoje }}" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="idade_gestacional_ultrassom_semanas">Idade Gestacional no Primeiro Ultrassom (semanas):</label>
-              <input type="number" id="idade_gestacional_ultrassom_semanas" name="idade_gestacional_ultrassom_semanas" class="form-control" required pattern="\d*" inputmode="numeric" required>
+              <input type="number" id="idade_gestacional_ultrassom_semanas" name="idade_gestacional_ultrassom_semanas" class="form-control" value="0" pattern="\d*" inputmode="numeric" required>
             </div>
             <div class="form-group">
               <label for="idade_gestacional_ultrassom_dias">Idade Gestacional no Primeiro Ultrassom (dias):</label>
-              <input type="number" id="idade_gestacional_ultrassom_dias" name="idade_gestacional_ultrassom_dias" class="form-control" value="0" required pattern="\d*" inputmode="numeric" required>
+              <input type="number" id="idade_gestacional_ultrassom_dias" name="idade_gestacional_ultrassom_dias" class="form-control" value="0" pattern="\d*" inputmode="numeric" required>
             </div>
             <div class="form-group mt-4 d-flex justify-content-center">
               <button type="submit" class="btn btn-primary">Calcular Idade Gestacional</button>

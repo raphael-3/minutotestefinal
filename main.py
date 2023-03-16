@@ -68,21 +68,32 @@ def uploaded_file(filename):
 ##### CALCULADORA IG ########
 @app.route('/calculadora')
 def calculadora():
-    return render_template('calcular.html')
+    hoje = datetime.today().date()
+    return render_template('calcular.html', hoje=hoje)
 
 @app.route('/calcular', methods=['POST'])
 def calcular_idade_gestacional():
+    #Pegando os inputs
     data_ultima_menstruacao = date.fromisoformat(request.form['data_ultima_menstruacao'])
     data_primeiro_ultrassom = date.fromisoformat(request.form['data_primeiro_ultrassom'])
     idade_gestacional_ultrassom = int(request.form['idade_gestacional_ultrassom_semanas'])*7+int(request.form['idade_gestacional_ultrassom_dias'])
+    #calculos da calculadora
     ig = IdadeGestacional(data_ultima_menstruacao, data_primeiro_ultrassom, idade_gestacional_ultrassom)
+    idade_calculada_pelo_usg, dias_usg, data_parto_usg = ig.calcular_idade_gestacional_pelo_ultrassom()
+    idade_calculada_pela_dum, dias_dum, data_parto_dum = ig.calcular_idade_gestacional_pela_dum()
     metodo, idade_final, outra_ig, outro_metodo = ig.qual_ig_usar()
-
-    return f"<h1> Utilizar IG({metodo}): {idade_final} / IG({outro_metodo}): {outra_ig} <h1>"
+    #Definindo a cor do card
+    if metodo == "DUM":
+        usg_verde = ""
+        dum_verde = "background-color: #00AA9E;"
+    else:
+        usg_verde = "background-color: #00AA9E;"
+        dum_verde = ""
+    return render_template("resultado_ig.html", metodo=metodo, ig_dum=idade_calculada_pela_dum, ig_usg=idade_calculada_pelo_usg, usg_verde=usg_verde, dum_verde=dum_verde)
 
 
 
 #############################
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
