@@ -8,13 +8,16 @@
 </head>
   <h2 class="text-center mb-4">Envie a Foto seguindo as instruções</h2>
   <body>
-    <h1>Captura de Foto</h1>
+  <p></p>
+  <div class="form-group mt-4 d-flex justify-content-center">
+      <h1 class="mx-auto">Captura de Foto</h1>
+  </div>
     </form>
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="question-box">
-            <h2 class="text-center mb-4">Captura de Foto</h2>
+            <h2 class="text-center mb-4">Realize o procedimento como indicado e nos envie os arquivos:</h2>
             <form action="/upload" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="name">Nome:</label>
@@ -24,16 +27,18 @@
                 <label for="email">E-mail:</label>
                 <input type="email" class="form-control" id="email" name="email">
               </div>
+                <p></p>
               <div class="form-group text-center">
                 <input type="file" name="foto_fita">
               </div>
-              <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary"value="Capturar">Enviar</button>
+              <div class="form-group mt-4 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mx-auto"value="Capturar">Enviar</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
+  <p></p>
   </body>
 {% endblock %}

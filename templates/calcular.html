@@ -5,6 +5,8 @@
     <form method="post" action="{{ url_for('calcular_idade_gestacional') }}">
       <div class="container mt-5">
         <div class="row justify-content-center">
+          <p></p>
+          <p></p>
           <h1 class="text-center mb-4">Calculadora de Idade Gestacional</h1>
           <div class="col-md-6">
             <div class="form-group">
@@ -23,13 +25,14 @@
               <label for="idade_gestacional_ultrassom_dias">Idade Gestacional no Primeiro Ultrassom (dias):</label>
               <input type="number" id="idade_gestacional_ultrassom_dias" name="idade_gestacional_ultrassom_dias" class="form-control" value="0" required pattern="\d*" inputmode="numeric" required>
             </div>
-            <div class="form-group mt-4">
+            <div class="form-group mt-4 d-flex justify-content-center">
               <button type="submit" class="btn btn-primary">Calcular Idade Gestacional</button>
             </div>
           </div>
         </div>
       </div>
     </form>
+  <p></p>
 </body>
 </html>
 {% endblock %}
