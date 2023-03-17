@@ -79,14 +79,16 @@ def calcular_idade_gestacional():
     idade_gestacional_ultrassom = int(request.form['idade_gestacional_ultrassom_semanas'])*7+int(request.form['idade_gestacional_ultrassom_dias'])
     #calculos da calculadora
     ig = IdadeGestacional(data_ultima_menstruacao, data_primeiro_ultrassom, idade_gestacional_ultrassom)
-    idade_calculada_pelo_usg, dias_usg, data_parto_usg = ig.calcular_idade_gestacional_pelo_ultrassom()
-    idade_calculada_pela_dum, dias_dum, data_parto_dum = ig.calcular_idade_gestacional_pela_dum()
+    idade_calculada_pelo_usg, semanas_usg, dias_usg, data_parto_usg = ig.calcular_idade_gestacional_pelo_ultrassom()
+    idade_calculada_pela_dum, semanas_dum, dias_dum, data_parto_dum = ig.calcular_idade_gestacional_pela_dum()
     metodo, idade_final, outra_ig, outro_metodo = ig.qual_ig_usar()
     #Definindo a cor do card
     if metodo == "DUM":
+        print(metodo)
         usg_verde = ""
         dum_verde = "background-color: #00AA9E;"
     else:
+        print(metodo)
         usg_verde = "background-color: #00AA9E;"
         dum_verde = ""
     return render_template("resultado_ig.html", metodo=metodo, ig_dum=idade_calculada_pela_dum, ig_usg=idade_calculada_pelo_usg, usg_verde=usg_verde, dum_verde=dum_verde)
