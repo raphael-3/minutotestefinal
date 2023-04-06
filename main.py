@@ -38,7 +38,7 @@ app = Flask(__name__)
 #### PÁGINA PRINCIPAL ####
 @app.route('/')
 def main():
-    return render_template('teste.html')
+    return render_template('index.html')
 
 
 #### PEGAR IMAGEM - MINUTO TESTE #####
