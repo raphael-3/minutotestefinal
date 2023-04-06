@@ -31,4 +31,21 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    $(document).ready(function() {
+      // Esconder todas as perguntas, exceto a primeira
+      $('.pergunta:not(:first)').hide();
+
+      // Quando um botão de opção for clicado, mostrar a próxima pergunta
+      $('input[type=radio]').click(function() {
+        $(this).parents('.pergunta').hide().next('.pergunta').fadeIn(500);
+      });
+
+      // Quando o botão de envio for clicado, enviar o formulário
+      $('form').submit(function(e) {
+        e.preventDefault();
+        // Aqui você pode adicionar código para enviar os dados do formulário para o servidor
+        alert('Formulário enviado com sucesso!');
+      });
+    });
+
 });
