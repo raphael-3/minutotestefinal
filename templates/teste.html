@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionário de Saúde</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Arquivo CSS personalizado -->
+  <link rel="stylesheet" href="static/css/questionario.css">
+</head>
+<body>
+
+  < class="questionario rounded p-4 bg-light">
+    <form id="questionario">
+      <!-- Pergunta 1 -->
+      <div class="form-group mb-4" id="pergunta1">
+        <label for="pergunta1">Você já teve infecção de urina?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta1" id="pergunta1_sim" value="sim">
+          <label class="form-check-label" for="pergunta1_sim">
+            Sim
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta1" id="pergunta1_nao" value="nao">
+          <label class="form-check-label" for="pergunta1_nao">
+            Não
+          </label>
+        </div>
+      </div>
+      <!-- Pergunta 2 -->
+      <div class="form-group mb-4" id="pergunta2">
+        <label for="pergunta2">Você tem infecção de urina recorrente - pelo menos 2 vezes em um semestre?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta2" id="pergunta2_sim" value="sim">
+          <label class="form-check-label" for="pergunta2_sim">
+            Sim
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta2" id="pergunta2_nao" value="nao">
+          <label class="form-check-label" for="pergunta2_nao">
+            Não
+          </label>
+        </div>
+      </div>
+
+      <!-- Pergunta 3 -->
+      <div class="form-group mb-4">
+        <label class="d-block mb-2">Você está com algum sintoma urinário agora?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="pergunta3[]" id="pergunta3_opcao1" value="Aumento da frequência miccional">
+          <label class="form-check-label" for="pergunta3_opcao1">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Aumento da frequência miccional
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="pergunta3[]" id="pergunta3_opcao2" value="Disúria (ardência para urinar)">
+          <label class="form-check-label" for="pergunta3_opcao2">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Disúria (ardência para urinar)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="pergunta3[]" id="pergunta3_opcao3" value="Incontinência urinária (perda de xixi)">
+          <label class="form-check-label" for="pergunta3_opcao3">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Incontinência urinária (perda de xixi)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="pergunta3[]" id="pergunta3_opcao4" value="Noctúria (tem que se levantar para fazer xixi a noite?)">
+          <label class="form-check-label" for="pergunta3_opcao4">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Noctúria (tem que se levantar para fazer xixi a noite?)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="pergunta3[]" id="pergunta3_opcao5" value="Urina com cheiro forte">
+          <label class="form-check-label" for="pergunta3_opcao5">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Urina com cheiro forte
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="pergunta3[]" id="pergunta3_opcao6" value="Urgência miccional (tem que sair correndo para ir ao banheiro)">
+          <label class="form-check-label" for="pergunta3_opcao6">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Urgência miccional (tem que sair correndo para ir ao banheiro)
+          </label>
+        </div>
+      </div>
+
+      <!-- Pergunta 4 -->
+      <div class="form-group mb-4" id="pergunta4">
+        <label for="pergunta4">Você acha que está com infecção de urina?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta4" id="pergunta4_sim" value="sim">
+          <label class="form-check-label" for="pergunta4_sim">
+            Sim
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta4" id="pergunta4_nao" value="nao">
+          <label class="form-check-label" for="pergunta4_nao">
+            Não
+          </label>
+        </div>
+      </div>
+
+      <!-- Pergunta 5 -->
+      <div class="form-group mb-4" id="pergunta5">
+        <label for="pergunta5">Você está com corrimento vaginal?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta5" id="pergunta5_sim" value="sim">
+          <label class="form-check-label" for="pergunta5_sim">
+            Sim
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta5" id="pergunta5_nao" value="nao">
+          <label class="form-check-label" for="pergunta5_nao">
+            Não
+          </label>
+        </div>
+      </div>
+
+      <!-- Pergunta 6 -->
+      <div class="form-group mb-4">
+        <label class="d-block mb-2">Como é o seu corrimento?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6_opcao1" value="Corrimento esbranquiçado com coceira">
+          <label class="form-check-label" for="pergunta6_opcao1">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Corrimento esbranquiçado com coceira
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6_opcao2" value="Corrimento amarelado com odor">
+          <label class="form-check-label" for="pergunta6_opcao2">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Corrimento amarelado com odor
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6_opcao3" value="Corrimento com as características acima juntas">
+          <label class="form-check-label" for="pergunta6_opcao3">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Corrimento com as características acima juntas
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6_opcao4" value="Não caracterizado nas anteriores">
+          <label class="form-check-label" for="pergunta6_opcao4">
+            <i class="fas fa-arrow-circle-right mr-2"></i>Não caracterizado nas anteriores
+          </label>
+        </div>
+      </div>
+
+      <!-- Botão de envio -->
+      <button type="submit" class="btn btn-primary mt-4">Enviar</button>
+
+    </form>
+  </div>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/scripts.js"></script>
+</body>
+</html>
+
+
+
+{% endblock %}
