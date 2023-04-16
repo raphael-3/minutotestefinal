@@ -11,35 +11,11 @@ from wtforms.csrf.core import CSRF
 
 app = Flask(__name__)
 
-# Configuração do SQL database
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///teste-urina.db'
-#     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#
-#     # Configuração do banco de dados SQLAlchemy
-#     db = SQLAlchemy(app)
-#
-#     # Definição do modelo de dados
-#     class Urina(db.Model):
-#         id = db.Column(db.Integer, primary_key=True)
-#         nome = db.Column(db.String(80), unique=False, nullable=False)
-#         email = db.Column(db.String(80), nullable=False)
-#         foto_fita = db.Column(db.LargeBinary)
-#
-#         def __repr__(self):
-#             return '<Book %r>' % self.nome
-#
-#     # Criação do banco de dados
-#     with app.app_context():
-#         db.create_all()
-
-## PASTA PARA UPLOADS DE FOTO SEM SER NO DB SQL ##
-# app.config['uploads'] = 'uploads' # Diretório onde as imagens serão armazenadas
 
 #### PÁGINA PRINCIPAL ####
 @app.route('/')
 def main():
     return render_template('index.html')
-
 
 #### PEGAR IMAGEM - MINUTO TESTE #####
 
@@ -63,29 +39,6 @@ def upload():
     # Renderiza a página de exibição da imagem
     return render_template('view.html', filename=filename)
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    # Retorna a imagem armazenada no diretório uploads
-    return send_from_directory(app.config['uploads'], filename)
-
-### QUESTIONÁRIO URINA #####
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///survey.db'
-# db = SQLAlchemy(app)
-app.config['SECRET_KEY'] = 'your_secret_key'
-csrf = CSRFProtect(app)
-
-# class Questionario(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     question1 = db.Column(db.String(10))
-#     question2 = db.Column(db.String(10))
-#     question3 = db.Column(db.String(100))
-#     question4 = db.Column(db.String(10))
-#     question5 = db.Column(db.String(10))
-#     question6 = db.Column(db.String(100))
-#
-# db.create_all()
-
 @app.route('/questionario_urina')
 def questionario_urina():
     return render_template('questionario_urina.html')
@@ -101,19 +54,6 @@ def submit_questionario_urina():
 
     question3_str = ','.join(question3)
     print(question1, question2_input, question3, question3_str, question4, question5, question6_input)
-
-    # questionario_data = Questionario(
-    #     question1=question1,
-    #     question2=question2_input,
-    #     question3=question3_str,
-    #     question4=question4,
-    #     question5=question5,
-    #     question6=question6_input,
-    # )
-
-    # db.session.add(survey_data)
-    # db.session.commit()
-
     return redirect(url_for('home'))
 
 ##### CALCULADORA IG ########
