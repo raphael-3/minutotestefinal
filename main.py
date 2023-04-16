@@ -3,11 +3,6 @@ from flask import Flask, render_template, request, send_from_directory, redirect
 import requests
 from datetime import date, timedelta, datetime
 from calculadora_ig import IdadeGestacional
-from flask_sqlalchemy import SQLAlchemy
-#para questionários
-from flask_wtf.csrf import CSRFProtect
-from wtforms.csrf.core import CSRF
-#Para google sheet
 
 app = Flask(__name__)
 
